@@ -1,0 +1,67 @@
+# YABAI: Window Navigation
+alt - h : yabai -m window --focus west 
+alt - l : yabai -m window --focus east
+alt - k : yabai -m window --focus north
+alt - j : yabai -m window --focus south
+
+# YABAI: Display Focus Toggle
+alt + shift - tab : yabai -m display --focus recent
+
+# YABAI: Resize Windows
+alt + ctrl - l : yabai -m window --resize bottom_right:60:0
+alt + ctrl - h : yabai -m window --resize bottom_right:-60:0
+alt + ctrl - j : yabai -m window --resize bottom_right:0:100
+alt + ctrl - k : yabai -m window --resize bottom_right:0:-100
+
+# YABAI: Space Navigation
+alt + shift - l : yabai -m space --focus next || yabai -m space --focus first && reload_top_status_bar && reload_top_status_bar
+alt + shift - h : yabai -m space --focus prev || yabai -m space --focus last && reload_top_status_bar && reload_top_status_bar
+alt + shift - 1 : yabai -m space --focus 1 && reload_top_status_bar
+alt + shift - 2 : yabai -m space --focus 2 && reload_top_status_bar
+alt + shift - 3 : yabai -m space --focus 3 && reload_top_status_bar
+alt + shift - 4 : yabai -m space --focus 4 && reload_top_status_bar
+alt + shift - 5 : yabai -m space --focus 5 && reload_top_status_bar
+alt + shift - 6 : yabai -m space --focus 6 && reload_top_status_bar
+alt + shift - 7 : yabai -m space --focus 7 && reload_top_status_bar
+alt + shift - 8 : yabai -m space --focus 8 && reload_top_status_bar
+alt + shift - 9 : yabai -m space --focus 9 && reload_top_status_bar
+alt + ctrl  - 1 : yabai -m window --space 1;\
+                  yabai -m space --focus 1 || reload_top_status_bar
+alt + ctrl  - 2 : yabai -m window --space 2;\
+                  yabai -m space --focus 2 || reload_top_status_bar
+alt + ctrl  - 3 : yabai -m window --space 3;\
+                  yabai -m space --focus 3 || reload_top_status_bar
+alt + ctrl  - 4 : yabai -m window --space 4;\
+                  yabai -m space --focus 4 || reload_top_status_bar
+alt + ctrl  - 5 : yabai -m window --space 5;\
+                  yabai -m space --focus 5 || reload_top_status_bar
+alt + ctrl  - 6 : yabai -m window --space 6;\
+                  yabai -m space --focus 6 || reload_top_status_bar
+alt + ctrl  - 7 : yabai -m window --space 7;\
+                  yabai -m space --focus 7 || reload_top_status_bar
+alt + ctrl  - 8 : yabai -m window --space 8;\
+                  yabai -m space --focus 8 || reload_top_status_bar
+alt + ctrl  - 9 : yabai -m window --space 9;\
+                  yabai -m space --focus 9 || reload_top_status_bar
+
+# YABAI: Flip Space
+alt - f : yabai -m space --mirror y-axis
+
+# YABAI: Toggle Sticky
+alt + shift - s : yabai -m window --toggle sticky#¢
+
+# YABAI: Space Creation
+alt - return : yabai -m space --create;\
+                  id="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')";\
+                  yabai -m window --space $id;\
+                  yabai -m space --focus $id && reload_top_status_bar
+
+alt + shift - return : yabai -m space --create && \
+                index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                yabai -m space --focus "${index}" && reload_top_status_bar
+
+
+# YABAI: Restart 
+alt - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+
