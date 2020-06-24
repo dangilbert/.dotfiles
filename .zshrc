@@ -6,10 +6,6 @@ export EDITOR=vim
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
 DEFAULT_USER="dangilbert"
