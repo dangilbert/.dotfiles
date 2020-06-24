@@ -48,7 +48,8 @@ alt + ctrl  - 9 : yabai -m window --space 9;\
 alt - f : yabai -m space --mirror y-axis
 
 # YABAI: Toggle Sticky
-alt + shift - s : yabai -m window --toggle sticky#¢
+alt + shift - s : yabai -m window --toggle sticky
+alt - s : yabai -m window --toggle float
 
 # YABAI: Space Creation
 alt - return : yabai -m space --create;\
