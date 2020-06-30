@@ -77,7 +77,7 @@ packloadall
 
 " ColorSchema
 let g:dracula_italic = 0
-colorscheme dracula
+silent! colorscheme dracula
 highlight Normal ctermbg=None
 
 let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
