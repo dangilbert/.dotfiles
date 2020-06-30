@@ -10,6 +10,8 @@ COMPLETION_WAITING_DOTS="true"
 
 DEFAULT_USER="dangilbert"
 
+export LAZY_NVM_COMMANDS='vim'
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -140,5 +142,7 @@ function gitsquash {
 }
 
 source /usr/local/share/antigen/antigen.zsh
+
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 #zprof
