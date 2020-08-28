@@ -37,6 +37,7 @@ export PATH=/usr/local/sbin:$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$PATH
 export PATH=$PATH:$FLUTTER_HOME/flutter/bin
 export PATH=$PATH:$HOME/.pub-cache/bin
+export PATH=$PATH:/usr/local/opt/qt/bin
 
 source ~/.zshrc-private
 
@@ -102,6 +103,15 @@ alias vlc='~/Applications/VLC.app/Contents/MacOS/VLC'
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+
+alias java8='export JAVA_HOME=$JAVA_8_HOME'
+alias java11='export JAVA_HOME=$JAVA_11_HOME'
+
+# default to Java 11
+java11
+
 export ANDROID_NDK_ROOT=~/Library/Android/sdk/ndk-bundle
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -144,5 +154,7 @@ function gitsquash {
 source /usr/local/share/antigen/antigen.zsh
 
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+# unimatrix -s 96 -l k -f -w
 
 #zprof
