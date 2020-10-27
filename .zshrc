@@ -17,7 +17,7 @@ COMPLETION_WAITING_DOTS="true"
 
 DEFAULT_USER="dangilbert"
 
-export LAZY_NVM_COMMANDS=('vim' 'git' 'nvim')
+export LAZY_NVM_COMMANDS=('vim' 'git' 'nvim' 'dotfiles')
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
