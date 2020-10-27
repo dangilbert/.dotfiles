@@ -1,4 +1,6 @@
 syntax on
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 " Basic stuff
 set tabstop=2 softtabstop=2
@@ -62,6 +64,7 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'hsanson/vim-android'
 Plug 'thosakwe/vim-flutter'
 Plug 'ThePrimeagen/vim-be-good'
+Plug 'udalov/kotlin-vim'
 
 
 call plug#end()

@@ -1,16 +1,23 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 ### Uncomment the following line and zprof at the end of this file to profile
 #zmodload zsh/zprof
 
 export ZSH=$HOME/.oh-my-zsh
 export EDITOR=vim
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 COMPLETION_WAITING_DOTS="true"
 
 DEFAULT_USER="dangilbert"
 
-export LAZY_NVM_COMMANDS='vim'
+export LAZY_NVM_COMMANDS=('vim' 'git' 'nvim')
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -43,8 +50,8 @@ source ~/.zshrc-private
 
 # Git commands
 alias git="hub"
-alias watchlg="watch --color git lg2 --color=always"
-alias watchst="watch --color git status"
+alias watchlg="watch --color git lg3 --color=always"
+alias watchst="watch --color 'unbuffer git status'"
 
 prunelocal() {
   git branch --merged | egrep -v "(^\*|master|dev|beta|prod)" | xargs git branch -d
@@ -137,13 +144,17 @@ function pdftopng {
 
 function pngtowebp {
    for i in *.png; do cwebp "${i}" -o "${i%png}webp"; done
- }
+}
 
-function pdftores {
-  pdftopng
+function pngtores {
   npm
   asset-generator *.png --android res 
   find res -name '*.png' | xargs -I {} sh -c "original=\"{}\"; output=\"\${original%png}webp\"; cwebp \"\$original\" -o  \"\$output\"; rm \"\$original\""
+}
+
+function pdftores {
+  pdftopng
+  pngtores
 }
 
 function gitsquash {
@@ -155,6 +166,13 @@ source /usr/local/share/antigen/antigen.zsh
 
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
+alias v=nvim
+alias vim=nvim
+
 # unimatrix -s 96 -l k -f -w
 
 #zprof
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+alias ssh="ssh -F ~/.ssh/viSSHous"
