@@ -17,6 +17,7 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
+set scrolloff=8
 
 " Saves changes to disk (To trigger hot realoading on websites etc.)
 set autoread

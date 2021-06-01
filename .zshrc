@@ -67,6 +67,7 @@ alias cptime="date +%s | pbcopy"
 alias nproc='sysctl -n hw.ncpu'
 
 alias readlink=greadlink
+alias cat=bat
 
 exip () {
     # gather external ip address
@@ -176,3 +177,11 @@ alias vim=nvim
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias ssh="ssh -F ~/.ssh/viSSHous"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+function scanports {
+  nmap -p- --min-rate=1000 -T4 $1 | grep "^[0-9]" | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//
+}
